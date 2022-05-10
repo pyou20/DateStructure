@@ -136,7 +136,7 @@ bool ListInsert(LinkNode *&L, int index, int value){
     }
 }
 
-/*删除节点上传测试*/
+/*删除节点*/
 bool ListDelete(LinkNode *&L,int index){
     if(index<1)
         return false;
