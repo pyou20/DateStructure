@@ -79,7 +79,7 @@ void Display(LinkNode *L){
     cout<<endl;
 }
 
-/*求线性表中某个元素值*/
+/*求线性表中某个元素的值*/
 bool GetElemLinkNode(LinkNode *L,int index,int &value){
     if(index<0)
         return false;
