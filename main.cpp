@@ -9,7 +9,7 @@ typedef struct LinkNode{
     struct LinkNode *next;
 } LinkNode;
 
-void Create_List_Front(LinkNode *&L,int const date[],int n){        //å¤´æ’æ³•åˆ›å»ºé“¾è¡¨
+void Create_List_Front(LinkNode *&L,int const date[],int n){        //Í·²å·¨´´½¨Á´±í
     LinkNode *s;
     L=(LinkNode *)malloc(sizeof (LinkNode));
     L->next=NULL;
@@ -21,7 +21,7 @@ void Create_List_Front(LinkNode *&L,int const date[],int n){        //å¤´æ’æ³•å
     }
 }
 
-void Create_List_Rear(LinkNode *&L,int const date[],int n){   //å°¾æ’æ³•åˆ›å»ºé“¾è¡¨
+void Create_List_Rear(LinkNode *&L,int const date[],int n){   //Î²²å·¨´´½¨Á´±í
     LinkNode *s,*r;
     L=(LinkNode *) malloc(sizeof (LinkNode));
     r=L;
@@ -34,13 +34,13 @@ void Create_List_Rear(LinkNode *&L,int const date[],int n){   //å°¾æ’æ³•åˆ›å»ºé
     r->next=NULL;
 }
 
-//åˆå§‹åŒ–çº¿æ€§è¡¨
+//³õÊ¼»¯ÏßÐÔ±í
 void InitList(LinkNode *&L){
     L=(LinkNode *) malloc(sizeof (LinkNode));
     L->next=NULL;
 }
 
-//é”€æ¯çº¿æ€§è¡¨
+//Ïú»ÙÏßÐÔ±í
 void DestroyList(LinkNode *&L){
     LinkNode *p=L->next;
     LinkNode *pre = L;
@@ -52,12 +52,12 @@ void DestroyList(LinkNode *&L){
     free(pre);
 }
 
-//åˆ¤æ–­çº¿æ€§è¡¨æ˜¯å¦ä¸ºç©ºè¡¨
+//ÅÐ¶ÏÏßÐÔ±íÊÇ·ñÎª¿Õ±í
 bool ListEmpty(LinkNode *L){
     return(L->next==NULL);
 }
 
-/*æ±‚çº¿æ€§è¡¨çš„é•¿åº¦*/
+/*ÇóÏßÐÔ±íµÄ³¤¶È*/
 int ListLength(LinkNode *L){
     int len=0;
     LinkNode *p=L;
@@ -79,7 +79,7 @@ void Display(LinkNode *L){
     cout<<endl;
 }
 
-/*æ±‚çº¿æ€§è¡¨ä¸­æŸä¸ªå…ƒç´ çš„å€¼*/
+/*ÇóÏßÐÔ±íÖÐÄ³¸öÔªËØµÄÖµ*/
 bool GetElemLinkNode(LinkNode *L,int index,int &value){
     if(index<0)
         return false;
@@ -97,7 +97,7 @@ bool GetElemLinkNode(LinkNode *L,int index,int &value){
     }
 }
 
-/*æŒ‰å…ƒç´ æŸ¥æ‰¾*/
+/*°´ÔªËØ²éÕÒ*/
 bool LocateElem(LinkNode *L,int value,int &Location){
     int index=0;
     LinkNode *p=L;
@@ -114,7 +114,7 @@ bool LocateElem(LinkNode *L,int value,int &Location){
     return false;
 }
 
-/*æ’å…¥èŠ‚ç‚¹*/
+/*²åÈë½Úµã*/
 bool ListInsert(LinkNode *&L, int index, int value){
     int j=0;
     LinkNode *p=L,*s;
@@ -136,7 +136,7 @@ bool ListInsert(LinkNode *&L, int index, int value){
     }
 }
 
-/*åˆ é™¤èŠ‚ç‚¹*/
+/*É¾³ý½Úµã*/
 bool ListDelete(LinkNode *&L,int index){
     if(index<1)
         return false;
@@ -162,31 +162,31 @@ int main() {
     int value=0;
     LinkNode *LinkNode1,*LinkNode2=NULL;
 
-    cout<<"å¤´æ’æ³•åˆ›å»ºé“¾è¡¨"<<endl;
+    cout<<"Í·²å·¨´´½¨Á´±í"<<endl;
     Create_List_Front(LinkNode1,date,5);
     Display(LinkNode1);
 
-    cout<<"å°¾æ’æ³•åˆ›å»ºé“¾è¡¨"<<endl;
+    cout<<"Î²²å·¨´´½¨Á´±í"<<endl;
     Create_List_Rear(LinkNode2,date,5);
     Display(LinkNode2);
 
-    cout<<"æŒ‰ä½ç½®æŸ¥æ‰¾å…ƒç´ å€¼(2)"<<endl;
-    cout<<"LinkNode1ä¸­çš„äºŒä¸ªå…ƒç´ ä¸ºï¼š"<<endl;
+    cout<<"°´Î»ÖÃ²éÕÒÔªËØÖµ(2)"<<endl;
+    cout<<"LinkNode1ÖÐµÄ¶þ¸öÔªËØÎª£º"<<endl;
     GetElemLinkNode(LinkNode1,2,value);
     cout<<value<<endl;
-    cout<<"LinkNode2ä¸­çš„äºŒä¸ªå…ƒç´ ä¸ºï¼š"<<endl;
+    cout<<"LinkNode2ÖÐµÄ¶þ¸öÔªËØÎª£º"<<endl;
     GetElemLinkNode(LinkNode2,2,value);
     cout<<value<<endl;
 
-    cout<<"æŒ‰å€¼æŸ¥æ‰¾(3)"<<endl;
+    cout<<"°´Öµ²éÕÒ(3)"<<endl;
     LocateElem(LinkNode1,3,value);
     cout<<value<<endl;
 
-    cout<<"æ’å…¥èŠ‚ç‚¹(3å¤„æ’å…¥4)"<<endl;
+    cout<<"²åÈë½Úµã(3´¦²åÈë4)"<<endl;
     ListInsert(LinkNode1,3,4);
     Display(LinkNode1);
 
-    cout<<"åˆ é™¤åˆšåˆšæ·»åŠ çš„èŠ‚ç‚¹"<<endl;
+    cout<<"É¾³ý¸Õ¸ÕÌí¼ÓµÄ½Úµã"<<endl;
     ListDelete(LinkNode1,3);
     Display(LinkNode1);
     return 0;
